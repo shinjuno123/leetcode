@@ -15,11 +15,7 @@ class Solution:
                 
         
             for i in range(start,len(candidates)):
-                current_elements = elements.copy()
-                current_elements.append(candidates[i])
-                tar = target - candidates[i]
-                dfs(current_elements,i,tar)
-                current_elements.pop()
+                dfs(elements+[candidates[i]], i, target-candidates[i])
             
         dfs([],0,target)
         
