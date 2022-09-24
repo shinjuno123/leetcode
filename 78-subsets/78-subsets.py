@@ -6,14 +6,10 @@ class Solution:
         def dfs(elements,start):
             
             results.append(elements.copy())
-            
-            if len(elements) == k:
-                return
+        
             
             for i in range(start,k):
-                elements.append(nums[i])
-                dfs(elements,i+1)
-                elements.pop()
+                dfs(elements + [nums[i]],i+1)
         
         
         dfs([],0)
