@@ -21,7 +21,6 @@ class MyQueue:
         return self.output[-1]
     
     def empty(self):
-        print(len(self.input))
         return len(self.input) == 0 and len(self.output) == 0
 
 # Your MyQueue object will be instantiated and called as such:
