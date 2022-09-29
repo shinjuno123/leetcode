@@ -46,6 +46,7 @@ class MyCircularDeque:
     def deleteLast(self):
         if(self.cnt > 0):
             self.tail = self.tail.left
+            self.tail.val = None
             self.cnt -= 1
             return True
         else:
