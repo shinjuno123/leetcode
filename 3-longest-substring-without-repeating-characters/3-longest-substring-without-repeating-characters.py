@@ -2,27 +2,19 @@ from collections import defaultdict
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        used = set()
+        used = {}
+        max_length = start = 0
         
-        def findSub(index,sub):
-        
-            if s[index] in used:
-                return
+        for index, character in enumerate(s):
             
-            for i in range(index,len(s)-1):
-                if s[i] not in used:
-                    used.add(s[i])
-                    t = findSub(i+1, s[i+1])
-                    sub += '' if t is None else t
-                    break
-                    
-            return sub
-        
-        res = 0
-        for i in range(len(s)):
-            a = findSub(i,s[i])
-            res = max(res,len(a))
-            used.clear()
+            # when meeting overlapping char
+            if character in used and start <= used[character]:
+                start = used[character] + 1
+            else:
+                max_length = max(max_length, index - start + 1)
             
+            
+            used[character] = index
         
-        return res
+        
+        return max_length
