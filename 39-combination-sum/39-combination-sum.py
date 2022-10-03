@@ -1,24 +1,27 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        # same number can be used for unlimited multiple times
+        result = []
         
-        results = []
         
-        def dfs(elements,start,target):
-
-            if target == 0:
-                results.append(elements.copy())
+        def dfs(li,idx):
+            if sum(li) == target:
+                result.append(li[:])
                 return
             
-            if target < 0:
+            if sum(li) > target:
                 return
-                
-        
-            for i in range(start,len(candidates)):
-                dfs(elements+[candidates[i]], i, target-candidates[i])
             
-        dfs([],0,target)
+            for i in range(idx,len(candidates)):
+                li.append(candidates[i])
+                dfs(li,i)
+                li.pop()
         
-        return results
+        
+        
+        
+        dfs([],0)
+        
+        return result
+        
         
         
