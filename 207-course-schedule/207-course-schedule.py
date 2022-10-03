@@ -2,37 +2,38 @@ class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         graph = collections.defaultdict(list)
         
-        for course, pre in prerequisites:
-            graph[course].append(pre)
-        
-        count = 0
+        for x, y in prerequisites:
+            graph[x].append(y)
         
         traced = set()
         visited = set()
         
-        def dfs(subject):
-            
-            if subject in traced:
+        def dfs(i):
+            if i in traced:
                 return False
             
-            if subject in visited:
+            if i in visited:
                 return True
             
-            traced.add(subject)
+            traced.add(i)
             
-            for sub in graph[subject]:
-                if not dfs(sub):
+            for y in graph[i]:
+                if not dfs(y):
                     return False
             
-            traced.remove(subject)
-            visited.add(subject)
+            traced.remove(i)
+            visited.add(i)
             
             return True
         
-        for sub in list(graph):
-            if not dfs(sub):
+        
+        for key in list(graph):
+            if not dfs(key):
                 return False
+            
         
         
         return True
         
+        
+    
