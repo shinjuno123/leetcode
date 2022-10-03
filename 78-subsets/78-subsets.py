@@ -1,17 +1,19 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        results = []
-        k = len(nums)
+        result = []
+        
+        
         
         def dfs(elements,start):
             
-            results.append(elements.copy())
-        
+            result.append(elements)
             
-            for i in range(start,k):
+            for i in range(start,len(nums)):
                 dfs(elements + [nums[i]],i+1)
+        
         
         
         dfs([],0)
         
-        return results
+        
+        return result
