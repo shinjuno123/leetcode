@@ -1,23 +1,22 @@
 from collections import defaultdict
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
-        tickets_dic = defaultdict(list)
+        table = defaultdict(list)
+        for dpt,avl in tickets:
+            table[dpt].append(avl)
+            table[dpt].sort(reverse=True)
         
-        result = []
-        # 1. Change tickets into hashmap
-        for ticket in tickets:
-            tickets_dic[ticket[0]].append(ticket[1])
-        
-        for key in tickets_dic:
-            tickets_dic[key].sort()
-        
-        # print(tickets_dic)
-        
+        res = []
+            
         def dfs(departure):
-            while tickets_dic[departure]:
-                dfs(tickets_dic[departure].pop(0))
-            result.append(departure)
         
+            while table[departure]:
+                dfs(table[departure].pop())
+            
+            res.append(departure)
         
         dfs("JFK")
-        return result[::-1]
+        
+        return res[::-1]
+            
+            
