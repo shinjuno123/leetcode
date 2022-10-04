@@ -1,22 +1,22 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        table = {")":"(",
+                 "}":"{",
+                 "]":"["}
+        
+        stack = []
+        
         if len(s) <= 1:
             return False
         
-        dic = {
-            ")":"(",
-            "]":"[",
-            "}":"{"
-        }
-        
-        stck = []
-        
-        for p in s:
-            if p not in dic:
-                stck.append(p)
-            elif not stck or dic[p] != stck.pop():
-                return False
+        for letter in list(s):
             
-        return len(stck) == 0
+            if stack and letter in table and stack[-1] == table[letter]:
+                stack.pop()
+                continue
+                
             
+            stack.append(letter)
     
+        
+        return not len(stack)
