@@ -1,9 +1,27 @@
+from collections import Counter
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
-        for letter in sorted(set(s)):
-            suffix = s[s.index(letter):]
-            if set(suffix) == set(s):
-                return letter + self.removeDuplicateLetters(suffix.replace(letter,''))
+        counter, seen, stack = Counter(s), set(), []
         
-        return ''
+        
+
+        for l in s:
             
+            counter[l] -= 1
+            
+            
+            if l in seen:
+                continue
+            
+            
+            while stack and stack[-1] > l and counter[stack[-1]] > 0:
+                seen.remove(stack.pop())
+            
+            
+            stack.append(l)
+            seen.add(l)
+            
+            
+            
+        return ''.join(stack)
+        
