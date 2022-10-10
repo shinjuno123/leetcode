@@ -23,7 +23,7 @@ class Solution:
                 for v, w in graph[node]:
                     alt = price + w
                     # in case of passing less vertaxes than already searched way
-                    # and in case of paying less flight fee than already searched way,
+                    # or in case of paying less flight fee than already searched way,
                     # do keep searching the way
                     if alt < weight[v][0] or k - 1 >= weight[v][1]:
                         weight[v] = (alt,k-1)
