@@ -9,7 +9,7 @@ class Solution:
         Q = collections.deque([root])
         
         while Q:
-            node = Q.popleft()
+            node = Q.pop()
             
             if node:
                 node.left, node.right = node.right, node.left
