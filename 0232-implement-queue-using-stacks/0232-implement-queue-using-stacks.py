@@ -6,7 +6,6 @@ class MyQueue:
 
     def push(self, x: int) -> None:
         self.input.append(x)
-        print(self.input, self.output)
 
     def pop(self) -> int:
         self.peek()
@@ -16,13 +15,14 @@ class MyQueue:
         if not self.output:
             while self.input:
                 self.output.append(self.input.pop())
-    
+            
             return self.output[-1]
         else:
             return self.output[-1]
 
     def empty(self) -> bool:
-        return len(self.input) == 0 and len(self.output) == 0
+        return len(self.input) == 0 and len(self.output) == 0        
+
 
 # Your MyQueue object will be instantiated and called as such:
 # obj = MyQueue()
