@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self,value = None,key = None):
-        self.value = value
+    def __init__(self,key=None,value=None):
         self.key = key
+        self.value = value
         self.next = None
 
 class MyHashMap:
@@ -11,31 +11,33 @@ class MyHashMap:
         self.table = collections.defaultdict(Node)
 
     def put(self, key: int, value: int) -> None:
-        hashed_key = key % self.size
+        index = key % self.size
         
-        if self.table[hashed_key].value is None:
-            self.table[hashed_key] = Node(value, key)
+        start = self.table[index]
+        if start.value is None:
+            self.table[index] = Node(key, value)
             return
         
-        start = self.table[hashed_key]
-        prev = start
         while start:
             if start.key == key:
                 start.value = value
                 return
+            if start.next is None:
+                break
             
-            prev, start = start, start.next
+            start= start.next
         
-        prev.next = Node(value,key)
+        start.next = Node(key, value)
+
 
     def get(self, key: int) -> int:
-        hashed_key = key % self.size
+        index = key % self.size
         
-        if self.table[hashed_key].key == key:
-            return self.table[hashed_key].value
+        if self.table[index].value is None:
+            return -1
         
-        start = self.table[hashed_key]
-        
+        start = self.table[index]
+                
         while start:
             if start.key == key:
                 return start.value
@@ -43,23 +45,29 @@ class MyHashMap:
             start = start.next
         
         return -1
+        
 
     def remove(self, key: int) -> None:
-        hashed_key = key % self.size
+        index = key % self.size
         
-        start = self.table[hashed_key]
+        
+        if self.table[index].value is None:
+            return
+        
+        start = self.table[index]
+        
         if start.key == key:
-            self.table[hashed_key] = Node() if start.next is None else start.next
+            self.table[index] = start.next if start.next is not None else Node()
             return
         
         prev = start
-        start = start.next
+        
         while start:
             if start.key == key:
                 prev.next = start.next
                 return
-            prev,start = start, start.next
-        
+            
+            start, prev = start.next, start
         
 
 
