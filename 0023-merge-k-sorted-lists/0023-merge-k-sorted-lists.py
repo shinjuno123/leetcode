@@ -5,20 +5,21 @@
 #         self.next = next
 import heapq
 class Solution:
-    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        root = head = ListNode()
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:    
         Q = []
-        for i, node in enumerate(lists):
-            if node is not None:
-                heapq.heappush(Q,(node.val,i,node))
+        head = root = ListNode(None)
+        for i, n in enumerate(lists):
+            if n is not None:
+                heapq.heappush(Q,(n.val,i,n))
+        
         
         while Q:
-            val ,idx, node = heapq.heappop(Q)
+            value, index, node = heapq.heappop(Q)
             head.next = node
             head = head.next
             node = node.next
             if node is not None:
-                heapq.heappush(Q,(node.val,idx,node))
-        
-        
+                heapq.heappush(Q,(node.val,index,node))
+            
+            
         return root.next
