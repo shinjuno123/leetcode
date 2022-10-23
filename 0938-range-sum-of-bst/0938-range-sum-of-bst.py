@@ -13,7 +13,6 @@ class Solution:
                     return dfs(root.right)
                 elif root.val > high:
                     return dfs(root.left)
-                print(root.val)
                 return root.val + dfs(root.left) + dfs(root.right)
             else:
                 return 0
