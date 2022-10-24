@@ -2,24 +2,17 @@ class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         res = []
         
-        
-        
-        
-        def dfs(elements,index,k):
-            
+        def dfs(start, elements, k):
             if k == 0:
                 res.append(elements)
                 return
             
-            for i in range(index,n + 1):
-                dfs( elements + [i],i+1, k - 1)
+            for i in range(start, n + 1):
+                elements.append(i)
+                dfs(i + 1, [] + elements, k - 1)
+                elements.pop()
+            
         
-        
-        
-        
-        dfs([],1,k)
-        
+        dfs(1,[],k)
         
         return res
-        
-        
