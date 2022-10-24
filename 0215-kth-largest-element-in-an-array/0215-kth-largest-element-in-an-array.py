@@ -7,8 +7,8 @@ class Solution:
         
         res = 0
         
-        for _ in range(k):
-            res = -heapq.heappop(heap)
+        for _ in range(1, k):
+            heapq.heappop(heap)
         
         
-        return res
+        return -heapq.heappop(heap)
