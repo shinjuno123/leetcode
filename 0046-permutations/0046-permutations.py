@@ -9,14 +9,14 @@ class Solution:
                 return
             
             for e in elements:
-                current_elem = elements[:]
-                current_elem.remove(e)
+                c_elements = elements[:]
+                c_elements.remove(e)
                 prev.append(e)
-                dfs(current_elem)
+                dfs(c_elements)
                 prev.pop()
+                
         
         
         dfs(nums)
-        
         
         return res
