@@ -1,19 +1,16 @@
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
         graph = collections.defaultdict(list)
+        res = []
         
         for dpt, avl in sorted(tickets,reverse=True):
             graph[dpt].append(avl)
         
-        
-        res = []
-        
-        def dfs(airport):
-            while graph[airport]:
-                dfs(graph[airport].pop())
+        def dfs(depart):
+            while graph[depart]:
+                dfs(graph[depart].pop())
             
-            res.append(airport)
-            
+            res.append(depart)
         
         dfs("JFK")
         
