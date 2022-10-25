@@ -3,16 +3,18 @@ class Solution:
         table = {
             ")":"(",
             "}":"{",
-            "]":"[" 
+            "]":"["
         }
-        
         stack = []
         
         for c in s:
-            if stack and c in table and stack[-1] == table[c]:
+            
+            if stack and  c in table and stack[-1] == table[c]:
                 stack.pop()
                 continue
             
             stack.append(c)
-
-        return len(stack) == 0
+            
+        
+        return not stack
+            
