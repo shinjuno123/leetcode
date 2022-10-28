@@ -6,14 +6,15 @@
 class Solution:
     def insertionSortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # sorted list 
-        cur = parent = ListNode(None)
+        cur = parent = ListNode(0)
         while head:
             while cur and cur.next and cur.next.val < head.val:
                 cur = cur.next
             
             cur.next,head.next,head = head,cur.next,head.next
             
-            cur = parent
+            if head and cur.val > head.val:
+                cur = parent
         
         return parent.next
         
