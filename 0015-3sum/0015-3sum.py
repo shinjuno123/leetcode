@@ -14,10 +14,10 @@ class Solution:
                 if sum_ > 0:
                     right -= 1
                 
-                if sum_ < 0:
+                elif sum_ < 0:
                     left += 1
                 
-                if sum_ == 0:
+                else:
                     res.append([nums[i],nums[left],nums[right]])
                     
                     while left < right and nums[left] == nums[left + 1]:
