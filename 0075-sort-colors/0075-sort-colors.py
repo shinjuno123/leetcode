@@ -3,16 +3,21 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        i = 1
-        while i < len(nums):
-            j = i
-            while j > 0 and nums[j] < nums[j - 1]:
-                nums[j], nums[j-1] = nums[j-1], nums[j]
-                j -= 1
-            
-            i += 1
+        mid = 1
+        red, white, blue = 0, 0, len(nums)
+        
+        while white < blue:
+            if nums[white] < mid:
+                nums[red], nums[white] = nums[white], nums[red]
+                red += 1
+                white += 1
+            elif nums[white] > mid:
+                blue -= 1
+                nums[blue], nums[white] = nums[white], nums[blue]
+            else:
+                white += 1
+        
         
         return nums
-            
         
         
