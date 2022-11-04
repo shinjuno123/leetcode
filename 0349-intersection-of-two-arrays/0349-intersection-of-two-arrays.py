@@ -1,15 +1,13 @@
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        set1 = set()
-        res = set()
+        result = set()
         
-        while nums1:
-            set1.add(nums1.pop())
+        nums2.sort()
         
-        for num in nums2:
-            if num in set1:
-                res.add(num)
+        for num1 in nums1:
+            i2 = bisect.bisect_left(nums2,num1)
+            if len(nums2) > 0 and len(nums2) > i2 and nums2[i2] == num1:
+                result.add(num1)
         
-        res = list(res)
         
-        return res
+        return list(result)
