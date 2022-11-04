@@ -1,9 +1,16 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        
         for i,v in enumerate(numbers):
-            compliment = target - v
-            idx1 = bisect.bisect_left(numbers,compliment,i+1)
-            if idx1 < len(numbers) and numbers[idx1] == compliment:
-                return [i+1, idx1 + 1]
+            expected = target - v
+            left, right = i + 1, len(numbers) - 1
+            
+            while left <= right:
+                mid = left + (right - left) // 2
+                
+                if numbers[mid] > expected:
+                    right = mid - 1
+                elif numbers[mid] < expected:
+                    left = mid + 1
+                else:
+                    return [i + 1, mid + 1]
         
