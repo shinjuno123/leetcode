@@ -1,8 +1,10 @@
 import math
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        count = math.ceil(len(nums) / 2)
-        counter = collections.Counter(nums)
-        for key, val in counter.most_common():
-            if val >= count:
-                return key
+        counts = collections.defaultdict(int)
+        for num in nums:
+            if counts[num] == 0:
+                counts[num] = nums.count(num)
+            
+            if counts[num] > len(nums) // 2:
+                return num
