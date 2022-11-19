@@ -1,8 +1,6 @@
 import math
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        if not nums:
-            return None
         if len(nums) == 1:
             return nums[0]
         
