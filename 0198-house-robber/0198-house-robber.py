@@ -1,6 +1,6 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        table = collections.OrderedDict()
+        table = collections.defaultdict(int)
         def _rob(i):
             if i < 0:
                 return 0
