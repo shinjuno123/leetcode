@@ -1,0 +1,37 @@
+There are 3 ways to reverse a string.
+
+
+First way is to use python slicing.
+I can just simply create a slice that starts with the length of the given string and ends at index 0.
+
+
+
+Second way is to use a loop.
+To start, Let's create a string called reversed_string.
+and initialize a integer variable called index with the length of the given string.
+We need to loop over the string with iterating variable called index.
+In each iteration, I'll concatenate value of string at index - 1 with reversed_string and decrement the index.
+
+and I'll stop the loop when variable index is less than zero.
+
+finally, I'll return reversed_string as a result.
+
+
+Final way is to use join.
+
+I'll reverse a string using python built-in function "reversed" 
+to cycle through the elements in string in reverse order.
+and then use join to merge all of the characters resulting from the reversed iteration into a new string.
+
+
+But in the Question, I need to modify the string in place. so I can't use O(n) extra space.
+
+so I'll use 2 pointers.
+First, I need to initialize 2 integer variables called left and right.
+left is 0 and right will be length of the given string - 1.
+
+I'll loop over the string until left is equal to right or bigger than right. 
+In each iteration, I'll swap characters at variables left and right position 
+and increment left, decrement right.
+
+At the end of the loop, I'll return the given string.

@@ -1,0 +1,17 @@
+In this Question, I need to convert uppercase letters into lowercase letters.
+so Using python bulit-in-function lower, I'll convert the given string into lowercase letters.
+and then It says I need to remove all non-alphanumeric characters. 
+So I'll remove them by regular expression.
+
+a String of letters is a palindrome if it is identical to its reversion.
+To check if the given string is a palindrome,
+I can simply walk over the string, character by character, verifying each pair of corresponding numbers.
+
+
+After the loop, if the given string is not palindrome, then start will be smaller than end.
+But if the given string is a palindrome, then start wll be bigger than end or equal to end.
+In case the length of the given string is odd, start will be equal to end.
+In case the length of the given string is even, start will be bigger than end.
+
+
+Total Time complexity is O(n).

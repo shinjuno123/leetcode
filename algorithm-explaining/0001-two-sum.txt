@@ -1,0 +1,7 @@
+I'll create a dictionary called dic.
+Afterwards, I'll loop overr nums with iterating variables nums and i.
+
+In each iteration, I'll assign index number as a value and num as a key to dic.
+And I'll subtract num from target and get a complement.
+Then check if the complement already exists in the dic.
+If it does exist in it then return the index of the complement and current index.

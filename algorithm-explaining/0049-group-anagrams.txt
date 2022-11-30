@@ -1,0 +1,14 @@
+Let's create a dictionary variable "anagrams" and each key is initialized with list.
+
+First, I'll Loop over the given list, word by word
+In each iteration, I'll sort each word lexicographically
+and set sorted word as a key in anagrams
+and then I'll append an original word to a key in anagrams.
+
+Finally, I'll convert anagrams into a list and return it.
+
+Time complexity is O(n * k log k)
+k is the length of the word
+0 <= k <= 100
+1 <= n <= 10000
+

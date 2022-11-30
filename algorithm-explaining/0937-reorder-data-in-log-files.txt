@@ -1,0 +1,15 @@
+Input variable name is logs and the type is a list having string elements inside.
+Output variable type has to be string.
+
+To get a output, we have to distinguish digit logs from letter logs.
+We can loop over the logs, log by log.
+In each iteation, I'll check if each log is digit or not.
+and push each log in separate variables called digit_logs and letter_logs.
+
+
+All we need to care about is letter_logs order because digit_logs maintains their relative order.
+So I'm going to use python built-in function "sort" to sort them by contents first and identifiers.
+
+Finally, I'll concatenate letter_logs with digit_logs. and return it.
+
+

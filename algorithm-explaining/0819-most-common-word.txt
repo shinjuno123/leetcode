@@ -1,0 +1,13 @@
+The words in paragraph is case-insensitive 
+so I need to change all the letters in the given string into lowercase letters first.
+then convert all non-alphbets to a space.
+and split them by a space.
+Afterwards, I need to exclude banned words.
+
+I'll use Counter python bulit-in function to count objects.
+Counter function initializes a hashmap that holds the count of each of the elemments present in the hashmap.
+then use most_common method of Counter function.
+and choose the first one and return the key.
+
+
+Time complexity is O(number of words log number of words)

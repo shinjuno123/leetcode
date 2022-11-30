@@ -1,0 +1,8 @@
+In this question, I'll get a string and I need to get the longest palindromic substring.
+
+To solve this problem, I'll use 2 pointers.
+I'll walk over the string, index by index.
+In each iteration, I'll expand 2 pointers on either side, checking up if the substring is a palindrome.
+At the same time I'll consider even and odd length cases of the palindromic substring.
+
+Finally, I'll return maxsize_substring.
