@@ -11,7 +11,7 @@ class Solution:
                 letter_logs.append(log)
         
         
-        # sort letter logs in lexical order. If contents are the same, sort them by identifiers.
+        # sort letter logs in a lexicographical order. If contents are the same, sort them by identifiers.
         letter_logs.sort(key=lambda x:(x.split()[1:],x.split()[0])) # O(n log n)
         
         
