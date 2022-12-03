@@ -1,3 +1,6 @@
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
-        return sum(sorted(nums)[::2])
+        # sort nums
+        nums.sort()
+        # sum first index of group(index n and index n + 1)
+        return sum(nums[0::2])
