@@ -4,6 +4,7 @@ class Solution:
         profit = 0
         min_price = sys.maxsize
         
+        # renew minimum price and maximum profit in each iteration
         for price in prices:
             min_price = min(min_price, price)
             profit = max(profit, price - min_price)
