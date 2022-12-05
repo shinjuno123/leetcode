@@ -5,18 +5,31 @@
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        fast = slow = head
-        prev = None
+        # initialize slow and fast with head
+        # initialize rev with None
+        slow = fast = head
+        rev = None
         
+        # loop through the linked list until slow reaches at the middle of the linked list and fast reaches at the end of it
+        # in each iteration, concatenate rev with slow in reverse
         while fast and fast.next:
             fast = fast.next.next
-            slow, prev, prev.next = slow.next, slow, prev
+            slow, rev, rev.next = slow.next ,slow, rev
+            
+            
         
-        
+        # if fast exists, move slow   
         if fast:
             slow = slow.next
         
-        while prev and slow and prev.val == slow.val:
-            prev, slow = prev.next, slow.next
+        # check if rev and slow are same
+        while rev and slow and rev.val == slow.val:
+            rev, slow = rev.next, slow.next
         
-        return not prev
+        
+        # if rev is at end of the linked list then, it is palindrome
+        return not rev
+        
+        
+        
+        
