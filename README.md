@@ -1,4 +1,4 @@
-# Leetcode
+# Leetcode Problem Solving
  :scroll::notebook: Leetcode Algorithm and Data Structure code
 
 
