@@ -1,0 +1,10 @@
+We will make 2 pointers left and right getting closer to max size of building.
+While left is smaller than right, we continue to iteration.
+When left is equal to right, I want to stop it.
+
+In each iteration, I'll remember maximum left and maximum right.
+As left goes to maximum height building, I'll get maximum left - height[left]
+and I'll get maximum right - height[right] and add them to result.
+After the iteration, I can get the total volume of trapped water.
+
+Time complexity is O(n)
